@@ -10,7 +10,7 @@ int main(int argc, char* argv[])
     UTILS::clear_terminal();
     time_stamp("It just works");
 
-    Timer timer;
+    Nano_Timer::Timer timer;
 
     for (int i{}; i < 25; i++)
     {
