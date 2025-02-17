@@ -26,19 +26,20 @@ aux_source_directory(_test TEST_SOURCES)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fopenmp -g -Wfatal-errors -Werror=uninitialized -Werror=init-self -Werror=reorder")    # for normal coding
 # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fopenmp -O3 -march=native -w")                                                         # for release
 
+set(CONST_TARGET_NAME "Timers")
 
 option(BUILD_LIBRARY "Build library instead of library executable" OFF)
 
 if(BUILD_LIBRARY)
-    set(EXE_NAME "bmp")
-    add_library(${EXE_NAME} SHARED ${SOURCES})
-    target_compile_definitions(${EXE_NAME} PRIVATE LINUX)
-    set_target_properties(${EXE_NAME} PROPERTIES COMPILE_FLAGS "-m64" LINK_FLAGS "-m64")
+    set(TARGET_NAME "${CONST_TARGET_NAME}")
+    add_library(${TARGET_NAME} SHARED ${SOURCES})
+    target_compile_definitions(${TARGET_NAME} PRIVATE LINUX)
+    set_target_properties(${TARGET_NAME} PROPERTIES COMPILE_FLAGS "-m64" LINK_FLAGS "-m64")
 else()
-    set(EXE_NAME "bmp.exe")
-    add_executable(${EXE_NAME} ${SOURCES})
-    target_compile_definitions(${EXE_NAME} PRIVATE LINUX BUILD_EXECUTABLE)
-    set_target_properties(${EXE_NAME} PROPERTIES COMPILE_FLAGS "-m64" LINK_FLAGS "-m64")
+    set(TARGET_NAME "${CONST_TARGET_NAME}.exe")
+    add_executable(${TARGET_NAME} ${SOURCES})
+    target_compile_definitions(${TARGET_NAME} PRIVATE LINUX BUILD_EXECUTABLE)
+    set_target_properties(${TARGET_NAME} PROPERTIES COMPILE_FLAGS "-m64" LINK_FLAGS "-m64")
 endif()
 
 option(CTEST_ACTIVE "Testing is active" OFF)
