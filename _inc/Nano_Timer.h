@@ -4,7 +4,6 @@
 
 namespace Nano_Timer
 {
-
     typedef std::chrono::high_resolution_clock::time_point chrono_clock;
 
     class Timer

@@ -2,7 +2,6 @@
 
 namespace Nano_Timer
 {
-
     tuple<u64, u64, u64, u64, u64> Timer::convert_nano_to_all_units_remainer(const u64& all_in_nano_seconds)
     {
         u64 minutes = static_cast<u64>(static_cast<double>(all_in_nano_seconds) / static_cast<double>(60000000000));
