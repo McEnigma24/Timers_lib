@@ -51,11 +51,15 @@ namespace Nano_Timer
         log_cout(convert_nano_to_all_units_remainer(all_in_nano_seconds), all_in_nano_seconds);
     }
 
-    Timer::Timer() {}
+    Timer::Timer() : total_time(0) {}
 
-    u64 Timer::get_all_in_nano() { return std::chrono::duration_cast<chrono::nanoseconds>(m_end - m_start).count(); }
+    u64 Timer::get_all_in_nano() { return total_time; }
 
     void Timer::start() { m_start = std::chrono::high_resolution_clock::now(); }
-    void Timer::end() { m_end = std::chrono::high_resolution_clock::now(); }
+    void Timer::stop()
+    {
+        chrono_clock now = std::chrono::high_resolution_clock::now();
+        total_time += std::chrono::duration_cast<chrono::nanoseconds>(now - m_start).count();
+    }
 
 } // namespace Nano_Timer

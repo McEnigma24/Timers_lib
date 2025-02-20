@@ -9,7 +9,7 @@ namespace Nano_Timer
     class Timer
     {
         chrono_clock m_start;
-        chrono_clock m_end;
+        u64 total_time;
 
     private:
         static tuple<u64, u64, u64, u64, u64> convert_nano_to_all_units_remainer(const u64& all_in_nano_seconds);
@@ -28,6 +28,6 @@ namespace Nano_Timer
         u64 get_all_in_nano();
 
         void start();
-        void end();
+        void stop();
     };
 } // namespace Nano_Timer
