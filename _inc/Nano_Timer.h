@@ -29,5 +29,6 @@ namespace Nano_Timer
 
         void start();
         void stop();
+        void reset();
     };
 } // namespace Nano_Timer

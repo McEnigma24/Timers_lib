@@ -61,5 +61,6 @@ namespace Nano_Timer
         chrono_clock now = std::chrono::high_resolution_clock::now();
         total_time += std::chrono::duration_cast<chrono::nanoseconds>(now - m_start).count();
     }
+    void Timer::reset() { total_time = 0; }
 
 } // namespace Nano_Timer

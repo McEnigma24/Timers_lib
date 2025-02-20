@@ -14,13 +14,26 @@ int main(int argc, char* argv[])
 
     for (int i{}; i < 25; i++)
     {
-        int random = rand() % 3000;
+        int random = rand() % 300;
 
         timer.start();
         sleep(random);
-        timer.end();
+        timer.stop();
         timer.log();
     }
+
+    timer.reset();
+    timer.log();
+
+    timer.start();
+    sleep(2000);
+    timer.stop();
+    timer.log();
+
+    timer.start();
+    sleep(5000);
+    timer.stop();
+    timer.log();
 
     return 0;
 }
